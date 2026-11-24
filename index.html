@@ -190,31 +190,48 @@
     /* Ajustes específicos para Mobile (Celulares) */
     @media (max-width: 768px) {
       .tag-button {
-        padding: 10px 20px;
+        padding: 10px 22px;
         font-size: 13.5px;
       }
 
+      /* No mobile, o menu vira um bottom sheet flutuante elegante que nunca sai da tela */
       .dropdown-menu {
-        min-width: 310px;
-        max-width: calc(100vw - 32px);
-        max-height: 55vh;
+        position: fixed;
+        top: auto;
+        bottom: 24px;
+        left: 50%;
+        transform: translateX(-50%) translateY(20px);
+        width: calc(100vw - 28px);
+        max-width: 420px;
+        min-width: unset;
+        max-height: 70vh;
         overflow-y: auto;
         -webkit-overflow-scrolling: touch;
       }
 
+      .dropdown-tag.open .dropdown-menu {
+        transform: translateX(-50%) translateY(0);
+      }
+
       .dropdown-item {
-        padding: 10px 12px;
+        padding: 12px 14px;
+      }
+
+      .history-modal-overlay {
+        padding: 12px;
       }
 
       .history-modal {
         max-height: 92vh;
-        border-radius: 14px;
+        width: 100%;
+        border-radius: 16px;
       }
 
       .modal-body {
-        padding: 18px;
+        padding: 18px 16px;
         font-size: 0.92rem;
         line-height: 1.6;
+        -webkit-overflow-scrolling: touch;
       }
 
       .modal-header {
@@ -629,10 +646,13 @@
   <div class="preview-modal-overlay" id="previewModal">
     <div class="preview-header">
       <span class="preview-title" id="previewTitle">Visualização de Documento</span>
-      <button class="preview-close" onclick="closePreview()">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-        Fechar Visualização
-      </button>
+      <div style="display: flex; gap: 10px; align-items: center;">
+        <a id="previewExternalLink" href="#" target="_blank" style="color: #fbbf24; text-decoration: none; font-size: 13px; font-weight: 600; padding: 6px 12px; border: 1px solid rgba(251,191,36,0.4); border-radius: 6px; background: rgba(0,0,0,0.3);">Abrir em Nova Aba</a>
+        <button class="preview-close" onclick="closePreview()">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+          Fechar
+        </button>
+      </div>
     </div>
     <iframe class="preview-iframe" id="previewIframe" src="about:blank"></iframe>
   </div>
@@ -691,11 +711,18 @@
     }
 
     function openPreview(pdfUrl, title) {
+      trackGA('visualizar_documento_preview', { documento: title });
+      // No celular, abre o PDF diretamente em tela cheia para leitura e zoom nativos perfeitos
+      if (window.innerWidth <= 768) {
+        window.open(pdfUrl, '_blank');
+        return;
+      }
       document.getElementById('previewTitle').innerText = title;
+      const extLink = document.getElementById('previewExternalLink');
+      if (extLink) extLink.href = pdfUrl;
       document.getElementById('previewIframe').src = pdfUrl + '#toolbar=1&navpanes=0&pagemode=none&view=FitH';
       document.getElementById('previewModal').classList.add('active');
       document.getElementById('tagCenter').classList.remove('open');
-      trackGA('visualizar_documento_preview', { documento: title });
     }
 
     function closePreview() {
