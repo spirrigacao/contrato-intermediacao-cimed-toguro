@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Patente Tampa Híbrida 10 mL • Parceria Toguro & CIMED</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Google Analytics 4 (gtag.js) - Patente CIMED -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-MSGY80JJC8"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-MSGY80JJC8', {
+      page_title: 'Portal Intermediador Toguro - Patente CIMED',
+      page_location: window.location.href
+    });
+
+    function trackGA(eventName, eventParams) {
+      try {
+        window.dataLayer = window.dataLayer || [];
+        var payload = Object.assign({ event: eventName }, eventParams || {});
+        window.dataLayer.push(payload);
+        if (typeof gtag === 'function') {
+          gtag('event', eventName, eventParams || {});
+        }
+      } catch (e) {}
+    }
+  </script>
+
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-W6KQ2MR2');</script>
+  <!-- End Google Tag Manager -->
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #000;
+    }
+
+    /* Ocultação total e agressiva de qualquer elemento da Netlify */
+    [id*="netlify"], 
+    [class*="netlify"], 
+    netlify-drawer, 
+    #netlify-drawer, 
+    .netlify-badge,
+    div[data-netlify-badge],
+    div[class*="badge"],
+    iframe[src*="netlify"],
+    iframe[id*="netlify"],
+    iframe[title*="Netlify"],
+    footer[class*="netlify"] {
+      display: none !important;
+      visibility: hidden !important;
+      opacity: 0 !important;
+      pointer-events: none !important;
+      height: 0 !important;
+      width: 0 !important;
+      position: absolute !important;
+      z-index: -99999 !important;
+    }
+
+    /* Imagem de Fundo 100% Widescreen Composta (Ressaliv na Esquerda, Capa no Centro, Epocler na Direita) */
+    .background-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-image: url('assets/capa_video_toguro.jpg');
+      background-size: cover;
+      background-position: center 38%;
+      background-repeat: no-repeat;
+      background-color: #090d18;
+    }
+
+    @media (min-aspect-ratio: 16/9) {
+      .background-container {
+        background-position: center 35%;
+      }
+    }
+
+    /* Overlay com a tag centralizada no meio exato da tela */
+    .center-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      pointer-events: none; /* A imagem fica 100% livre, só a tag recebe clique */
+    }
+
+    /* Tag Central Elegante com Efeito Glass e Glow */
+    .dropdown-tag {
+      pointer-events: auto;
+      position: relative;
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .tag-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 28px;
+      background: rgba(15, 23, 42, 0.94);
+      color: #ffffff;
+      border: 1px solid rgba(248, 195, 0, 0.7);
+      border-radius: 50px;
+      font-size: 14.5px;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+      cursor: pointer;
+      box-shadow: 0 12px 30px -5px rgba(0, 0, 0, 0.6), 0 0 25px rgba(248, 195, 0, 0.35);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      user-select: none;
+    }
+
+    .tag-button:hover {
+      transform: translateY(-2px) scale(1.03);
+      border-color: rgba(248, 195, 0, 1);
+      box-shadow: 0 18px 35px -5px rgba(248, 195, 0, 0.5), 0 0 30px rgba(248, 195, 0, 0.5);
+    }
+
+    .tag-button .arrow-icon {
+      width: 18px;
+      height: 18px;
+      transition: transform 0.25s ease;
+      stroke-width: 2.5;
+    }
+
+    .dropdown-tag.open .arrow-icon {
+      transform: rotate(180deg);
+    }
+
+    /* Menu Suspenso Central */
+    .dropdown-menu {
+      position: absolute;
+      top: calc(100% + 14px);
+      left: 50%;
+      background: rgba(255, 255, 255, 0.98);
+      border: 1px solid rgba(0, 0, 0, 0.15);
+      border-radius: 16px;
+      padding: 10px;
+      min-width: 350px;
+      max-width: 90vw;
+      box-shadow: 0 25px 50px -10px rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateX(-50%) translateY(-8px) scale(0.96);
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: 50;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .dropdown-tag.open .dropdown-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(-50%) translateY(0) scale(1);
+    }
+
+    /* Ajustes específicos para Mobile (Celulares) */
+    @media (max-width: 768px) {
+      .tag-button {
+        padding: 10px 20px;
+        font-size: 13.5px;
+      }
+
+      .dropdown-menu {
+        min-width: 310px;
+        max-width: calc(100vw - 32px);
+        max-height: 55vh;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .dropdown-item {
+        padding: 10px 12px;
+      }
+
+      .history-modal {
+        max-height: 92vh;
+        border-radius: 14px;
+      }
+
+      .modal-body {
+        padding: 18px;
+        font-size: 0.92rem;
+        line-height: 1.6;
+      }
+
+      .modal-header {
+        padding: 14px 18px;
+      }
+
+      .modal-footer {
+        padding: 14px 18px;
+      }
+    }
+
+    .dropdown-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 16px;
+      border-radius: 10px;
+      color: #0f172a;
+      text-decoration: none;
+      font-size: 13.5px;
+      font-weight: 500;
+      transition: all 0.15s ease;
+      cursor: pointer;
+      border: none;
+      background: transparent;
+      text-align: left;
+      width: 100%;
+    }
+
+    .dropdown-item:hover {
+      background: #f1f5f9;
+      color: #b45309;
+      transform: translateX(3px);
+    }
+
+    .dropdown-item.featured {
+      background: #fffbeb;
+      border: 1px solid #fde68a;
+    }
+
+    .dropdown-item.featured:hover {
+      background: #fef3c7;
+      color: #92400e;
+    }
+
+    .dropdown-item .item-icon {
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+      color: #d97706;
+    }
+
+    .dropdown-item.word-item .item-icon {
+      color: #2b579a;
+    }
+
+    .item-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .item-title {
+      font-weight: 700;
+      font-size: 13.5px;
+      line-height: 1.25;
+    }
+
+    .item-meta {
+      font-size: 11px;
+      color: #64748b;
+      margin-top: 2px;
+    }
+
+    .item-action-icon {
+      margin-left: auto;
+      width: 16px;
+      height: 16px;
+      color: #94a3b8;
+      flex-shrink: 0;
+    }
+
+    .dropdown-item:hover .item-action-icon {
+      color: #d97706;
+    }
+
+    /* Modal da História (Design Premium) */
+    .history-modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.88);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      z-index: 9999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .history-modal-overlay.active {
+      display: flex;
+    }
+
+    .history-modal {
+      background: #0b0f19;
+      border: 1px solid rgba(248, 195, 0, 0.45);
+      border-radius: 20px;
+      max-width: 680px;
+      width: 100%;
+      max-height: 88vh;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8), 0 0 45px rgba(248, 195, 0, 0.2);
+      color: #f8fafc;
+      overflow: hidden;
+      animation: modalFadeIn 0.25s ease;
+    }
+
+    @keyframes modalFadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .modal-header {
+      padding: 20px 24px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    .modal-header h3 {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: #fbbf24;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .modal-close-btn {
+      background: transparent;
+      border: none;
+      color: #94a3b8;
+      cursor: pointer;
+      padding: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 6px;
+      transition: all 0.15s ease;
+    }
+
+    .modal-close-btn:hover {
+      color: #fff;
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .modal-body {
+      padding: 26px;
+      overflow-y: auto;
+      font-size: 0.98rem;
+      line-height: 1.68;
+      color: #cbd5e1;
+    }
+
+    .modal-body p {
+      margin-bottom: 16px;
+    }
+
+    .modal-body strong {
+      color: #fff;
+    }
+
+    .modal-body .highlight-quote {
+      background: rgba(248, 195, 0, 0.08);
+      border-left: 3px solid #fbbf24;
+      padding: 14px 18px;
+      border-radius: 0 10px 10px 0;
+      margin: 18px 0;
+      color: #fef08a;
+      font-style: italic;
+    }
+
+    .modal-footer {
+      padding: 16px 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(15, 23, 42, 0.9);
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .btn-copy-history {
+      background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+      color: #000;
+      font-weight: 700;
+      font-size: 0.9rem;
+      border: none;
+      padding: 10px 22px;
+      border-radius: 8px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 12px rgba(245, 158, 11, 0.35);
+    }
+
+    .btn-copy-history:hover {
+      background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(245, 158, 11, 0.5);
+    }
+
+    .toast {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      background: #10b981;
+      color: #fff;
+      padding: 12px 22px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+      display: none;
+      z-index: 10000;
+    }
+
+    /* Modal de Preview em Tela Cheia */
+    .preview-modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.88);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      z-index: 10000;
+      display: none;
+      flex-direction: column;
+    }
+
+    .preview-modal-overlay.active {
+      display: flex;
+    }
+
+    .preview-header {
+      height: 48px;
+      background: #0f172a;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 16px;
+      flex-shrink: 0;
+    }
+
+    .preview-title {
+      color: #f8fafc;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .preview-close {
+      background: #ef4444;
+      border: none;
+      color: #ffffff;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      padding: 6px 14px;
+      border-radius: 6px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .preview-iframe {
+      width: 100vw;
+      height: calc(100vh - 48px);
+      border: none;
+      background: #525659;
+      display: block;
+    }
+
+    /* Oculta qualquer Badge da Netlify */
+    [id*="netlify"], [class*="netlify"], netlify-drawer, #netlify-drawer, .netlify-badge {
+      display: none !important;
+      visibility: hidden !important;
+      opacity: 0 !important;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W6KQ2MR2"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <!-- Imagem de Fundo 100% limpa com a capa oficial do vídeo -->
+  <div class="background-container"></div>
+
+  <!-- Tag Centralizada no Meio da Tela -->
+  <div class="center-overlay">
+    <div class="dropdown-tag" id="tagCenter">
+      <button class="tag-button" onclick="toggleDropdown('tagCenter', event)">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+        <span>Acessar Documentos & Proposta</span>
+        <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+
+      <div class="dropdown-menu">
+        <!-- 1. A HISTÓRIA AUTÊNTICA (Com botão de cópia rápida) -->
+        <button class="dropdown-item featured" onclick="openHistoryModal()">
+          <svg class="item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+          <div class="item-text">
+            <span class="item-title">A História da Invenção (Mensagem Direta)</span>
+            <span class="item-meta">Como essa tampa nasceu do anúncio do Toguro</span>
+          </div>
+          <svg class="item-action-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+
+        <!-- 2. Contrato de Intermediação e Comissão (PDF) -->
+        <button class="dropdown-item" onclick="openPreview('docs/Contrato_Intermediacao_Comissao_Patente_CIMED_Toguro.pdf', 'Contrato de Intermediação e Comissão • Toguro & Edgar')">
+          <svg class="item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          <div class="item-text">
+            <span class="item-title">Contrato de Intermediação (PDF)</span>
+            <span class="item-meta">Instrumento com percentuais e comissão formal</span>
+          </div>
+          <svg class="item-action-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+        </button>
+
+        <!-- 3. Contrato de Intermediação (DOCX) -->
+        <a class="dropdown-item word-item" href="docs/Contrato_Intermediacao_Comissao_Patente_CIMED_Toguro.docx" download onclick="trackGA('download_contrato_docx')">
+          <svg class="item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          <div class="item-text">
+            <span class="item-title">Baixar Contrato em Word (.docx)</span>
+            <span class="item-meta">Arquivo editável para preenchimento de dados</span>
+          </div>
+          <svg class="item-action-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        </a>
+
+        <!-- 4. Dossiê Oficial da Patente no INPI -->
+        <button class="dropdown-item" onclick="openPreview('docs/INPI_BR_202026029451_4_Dossie_Oficial.pdf', 'Dossiê Técnico da Patente INPI • BR 20 2026 029451 4')">
+          <svg class="item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+          <div class="item-text">
+            <span class="item-title">Dossiê Técnico da Patente (INPI)</span>
+            <span class="item-meta">Desenhos mecânicos e relatório descritivo oficial</span>
+          </div>
+          <svg class="item-action-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL DA HISTÓRIA -->
+  <div class="history-modal-overlay" id="historyModal">
+    <div class="history-modal">
+      <div class="modal-header">
+        <h3>📖 A História da Tampa Híbrida</h3>
+        <button class="modal-close-btn" onclick="closeHistoryModal()">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+      <div class="modal-body" id="historyText">
+        <p><strong>Fala Toguro, tudo bem?</strong></p>
+        
+        <p>Eu já acompanhava você há muito tempo por causa da resenha no mundo maromba. Quando vi você entrar no mundo dos negócios e começar a sua jornada empresarial, passei a acompanhar cada passo seu com muita atenção — até o momento em que você fechou a parceria com a <strong>CIMED</strong>.</p>
+        
+        <p>Nas reuniões no escritório com o <strong>Erich e o João Adibe</strong>, você colocou os flaconetes na mesa e mostrou ao vivo a diferença de abertura entre o da Epocler e o do Ressaliv. Você abriu o da Epocler apenas empurrando a aba com o polegar num clique leve. Em seguida, João disse: <em>"Abre esse agora com o Ressaliv"</em>. Você teve que puxar com a unha, rodar o lacre em 360° e puxar o batoque de lado com dificuldade. João olhou para você e disse: <strong>"É outra experiência."</strong></p>
+
+        <div class="highlight-quote">
+          "Vocês queriam quebrar a patente da Epocler e entregar essa mesma facilidade para o público, mas não sabiam como e estavam mostrando essa dificuldade abertamente nos vídeos."
+        </div>
+
+        <p>Eu assisti àquele primeiro vídeo em que você expôs os problemas da CIMED — tanto esse da tampa do flaconete quanto o do desodorante. Na época, eu não dei cartaz. Eu sabia que tinha a capacidade e a experiência em embalagens para resolver aquele problema de engenharia, mas deixei para lá porque imaginei: <em>'alguém melhor do que eu, com mais classificação e renome no padrão farmacêutico, vai fazer algo melhor e resolver isso logo'</em>.</p>
+
+        <p>Passou quase um mês. Vi você publicar novamente o mesmo anúncio, reclamando exatamente sobre o mesmo problema persistindo na tampa. Foi aí que me caiu a ficha: <strong>não tinha ninguém no mercado capaz de resolver aquilo de verdade. Ou se tinha, não estava olhando para isso. Eureca! Oportunidade! Vamos pra cima!!!</strong></p>
+
+        <p><strong>Aí fui na farmácia, comprei o flaconete da CIMED e o do concorrente.</strong> Entendi o problema de perto e comecei a focar 100% na solução. Com uma sólida bagagem de experiência no mercado de embalagens, principalmente em garrafas e tampas, foram duas semanas intensas de modelagem e desenvolvimento até atingir esse resultado que hoje está devidamente protocolado e registrado no INPI: a <strong>TAMPA HÍBRIDA VEDANTE 10 mL</strong> (Patente BR 20 2026 029451 4).</p>
+
+        <p><strong>O que ela entrega:</strong></p>
+        <p>• <strong>Abertura por pequeno giro e impulsão:</strong> basta um pequeno giro ergonômico para a tampa ser impulsionada para cima com leveza e precisão, rompendo a vedação sem esforço e sem machucar a unha;<br>
+        • <strong>100% Livre de patente de concorrente:</strong> é um Modelo de Utilidade autônomo, novo e exclusivo, blindando a CIMED juridicamente;<br>
+        • <strong>Zero alteração de fábrica:</strong> mantém o batoque interno padrão e encaixa diretamente nas máquinas de envase de alta velocidade da CIMED, sem exigir novo maquinário.</p>
+
+        <p><strong>Por uma decisão minha, por livre e espontânea vontade própria</strong>, estou oferecendo a você essa comissão formal no contrato. Afinal, o problema foi divulgado publicamente para todo o Brasil, mas fui eu quem captei a oportunidade, assumi o risco, parei a minha empresa e fui atrás de resolver o que ninguém resolvia. Como foi através dos seus vídeos que essa demanda chegou até mim, acho mais do que justo e ético compartilhar esse resultado com você.</p>
+
+        <p>Preparei o Contrato de Intermediação formal para garantir a sua comissão pelo fato de você já ter feito essa ponte pública. Você não precisa marcar reunião nem fazer esforço burocrático de negociação: a ponte já está feita, o restante técnico e contratual é direto comigo e a decisão final agora vem deles para mim.</p>
+      </div>
+      <div class="modal-footer">
+        <span style="font-size: 0.85rem; color: #94a3b8;">Texto completo pronto para enviar no direct</span>
+        <button class="btn-copy-history" onclick="copyHistoryText()">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+          Copiar Texto
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL DE PREVIEW EM TELA CHEIA -->
+  <div class="preview-modal-overlay" id="previewModal">
+    <div class="preview-header">
+      <span class="preview-title" id="previewTitle">Visualização de Documento</span>
+      <button class="preview-close" onclick="closePreview()">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        Fechar Visualização
+      </button>
+    </div>
+    <iframe class="preview-iframe" id="previewIframe" src="about:blank"></iframe>
+  </div>
+
+  <div class="toast" id="toast">✅ Texto copiado com sucesso!</div>
+
+  <script>
+    function toggleDropdown(id, event) {
+      event.stopPropagation();
+      const el = document.getElementById(id);
+      el.classList.toggle('open');
+      trackGA('clique_tag_central', { estado: el.classList.contains('open') ? 'aberto' : 'fechado' });
+    }
+
+    document.addEventListener('click', function(e) {
+      const tag = document.getElementById('tagCenter');
+      if (tag && !tag.contains(e.target)) {
+        tag.classList.remove('open');
+      }
+    });
+
+    function openHistoryModal() {
+      document.getElementById('historyModal').classList.add('active');
+      document.getElementById('tagCenter').classList.remove('open');
+      trackGA('abrir_modal_historia');
+    }
+
+    function closeHistoryModal() {
+      document.getElementById('historyModal').classList.remove('active');
+    }
+
+    function copyHistoryText() {
+      const body = document.getElementById('historyText');
+      const text = body.innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        showToast();
+        trackGA('copiar_historia_toguro');
+      }).catch(err => {
+        const area = document.createElement('textarea');
+        area.value = text;
+        document.body.appendChild(area);
+        area.select();
+        document.execCommand('copy');
+        document.body.removeChild(area);
+        showToast();
+        trackGA('copiar_historia_toguro_fallback');
+      });
+    }
+
+    function showToast() {
+      const t = document.getElementById('toast');
+      t.style.display = 'block';
+      setTimeout(() => {
+        t.style.display = 'none';
+      }, 3000);
+    }
+
+    function openPreview(pdfUrl, title) {
+      document.getElementById('previewTitle').innerText = title;
+      document.getElementById('previewIframe').src = pdfUrl + '#toolbar=1&navpanes=0&pagemode=none&view=FitH';
+      document.getElementById('previewModal').classList.add('active');
+      document.getElementById('tagCenter').classList.remove('open');
+      trackGA('visualizar_documento_preview', { documento: title });
+    }
+
+    function closePreview() {
+      document.getElementById('previewModal').classList.remove('active');
+      document.getElementById('previewIframe').src = 'about:blank';
+    }
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        closePreview();
+        closeHistoryModal();
+        const tag = document.getElementById('tagCenter');
+        if (tag) tag.classList.remove('open');
+      }
+    });
+  </script>
+
+</body>
+</html>
