@@ -189,9 +189,21 @@
 
     /* Ajustes específicos para Mobile (Celulares) */
     @media (max-width: 768px) {
+      /* Ajuste da imagem para celular: mostra a arte panorâmica completa sem cortar nem dar zoom */
+      .background-container {
+        background-size: 100% auto;
+        background-position: center 18%;
+        background-repeat: no-repeat;
+      }
+
+      .center-overlay {
+        align-items: flex-start;
+        padding-top: 50vh;
+      }
+
       .tag-button {
-        padding: 10px 22px;
-        font-size: 13.5px;
+        padding: 12px 24px;
+        font-size: 14px;
       }
 
       /* No mobile, o menu vira um bottom sheet flutuante elegante que nunca sai da tela */
