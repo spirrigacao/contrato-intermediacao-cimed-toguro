@@ -187,8 +187,8 @@
       transform: translateX(-50%) translateY(0) scale(1);
     }
 
-    /* Ajustes específicos para Mobile (Celulares) */
-    @media (max-width: 768px) {
+    /* Ajustes específicos para Mobile (Celulares em Pé / Portrait) */
+    @media (max-width: 768px) and (orientation: portrait) {
       /* Ajuste da imagem para celular: mostra a arte panorâmica completa sem cortar nem dar zoom */
       .background-container {
         background-size: 100% auto;
@@ -206,7 +206,7 @@
         font-size: 14px;
       }
 
-      /* No mobile, o menu vira um bottom sheet flutuante elegante que nunca sai da tela */
+      /* No mobile portrait, o menu vira um bottom sheet flutuante elegante */
       .dropdown-menu {
         position: fixed;
         top: auto;
@@ -252,6 +252,85 @@
 
       .modal-footer {
         padding: 14px 18px;
+      }
+    }
+
+    /* Ajustes específicos para Mobile na Horizontal (Landscape) e Telas Baixas */
+    @media (max-height: 550px) {
+      .background-container {
+        background-size: cover;
+        background-position: center 30%;
+      }
+
+      .center-overlay {
+        align-items: flex-start !important;
+        padding-top: 14px !important;
+      }
+
+      .tag-button {
+        padding: 8px 18px !important;
+        font-size: 12.5px !important;
+        border-radius: 30px !important;
+      }
+
+      /* No modo horizontal, os 4 itens se organizam em 2 colunas para caber na tela com acesso total */
+      .dropdown-menu {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        gap: 8px !important;
+        width: min(740px, 95vw) !important;
+        min-width: unset !important;
+        max-height: calc(100vh - 65px) !important;
+        overflow-y: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+        position: absolute !important;
+        top: calc(100% + 8px) !important;
+        bottom: auto !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        padding: 8px !important;
+        border-radius: 12px !important;
+      }
+
+      .dropdown-item {
+        padding: 8px 10px !important;
+        gap: 8px !important;
+      }
+
+      .dropdown-item .item-icon {
+        width: 17px !important;
+        height: 17px !important;
+      }
+
+      .item-title {
+        font-size: 12px !important;
+        line-height: 1.2 !important;
+      }
+
+      .item-meta {
+        font-size: 10px !important;
+      }
+
+      /* Modais em modo horizontal */
+      .history-modal-overlay {
+        padding: 8px !important;
+      }
+
+      .history-modal {
+        max-height: 96vh !important;
+      }
+
+      .modal-header {
+        padding: 10px 16px !important;
+      }
+
+      .modal-body {
+        padding: 12px 16px !important;
+        font-size: 0.88rem !important;
+      }
+
+      .modal-footer {
+        padding: 10px 16px !important;
       }
     }
 
